@@ -1,0 +1,27 @@
+{
+  "name": "forecast_vl_bot",
+  "version": "1.0.0",
+  "description": "nodejs parse pages and create png for users of telegram",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [
+    "nodejs",
+    "js",
+    "fs",
+    "puppeteer",
+    "gismeteo",
+    "primpogoda",
+    "canvas",
+    "telegraf"
+  ],
+  "author": "Aleksey Balahnin <alesha961337@yandex.ru>",
+  "license": "ISC",
+  "dependencies": {
+    "canvas": "^2.9.3",
+    "fs": "^0.0.1-security",
+    "puppeteer": "^15.3.1",
+    "telegraf": "^4.8.5"
+  }
+}
