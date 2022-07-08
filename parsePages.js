@@ -3,9 +3,10 @@ const puppeteer = require('puppeteer')
 async function searchWeather() {
 
    // const browser = await puppeteer.launch(); // for win
-   const browser = await puppeteer.launch({ // for linus
-      executablePath: '/usr/bin/chromium-browser'
-    });
+   let browser = await puppeteer.launch({ // for linus
+      executablePath: '/usr/bin/chromium-browser', 
+      args: [ '--disable-gpu', '--disable-setuid-sandbox', '--no-sandbox', '--no-zygote' ] 
+   })
    const page = await browser.newPage();
 
    await page.goto('https://www.gismeteo.ru/weather-vladivostok-4877/10-days/');
