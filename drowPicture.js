@@ -11,8 +11,8 @@ async function drowPicture() {
   const context = canvas.getContext('2d')
   const image = await loadImage((function() {
     let TypeOfWeather = weatherContent.primpogoda.TypeOfWeather10Days[1].toLowerCase()
-    if (TypeOfWeather.includes('дождь') || TypeOfWeather.includes('пасмурно') || TypeOfWeather.includes('туман')) { return './rain.png'}
-    else { return './sun.png'}
+    if (TypeOfWeather.includes('дождь') || TypeOfWeather.includes('пасмурно') || TypeOfWeather.includes('туман')) { return './background/rain.png'}
+    else { return './background/sun.png'}
   }()));
   context.drawImage(image, 0, 0, width, height)
   context.textAlign = 'center'
@@ -21,13 +21,13 @@ async function drowPicture() {
   let choiceIcon = (num) => {
     let TypeOfWeather = weatherContent.primpogoda.TypeOfWeather10Days[num].toLowerCase()
     if (TypeOfWeather.includes('дождь')) {
-      return './icon_rain.png'
+      return './icon/icon_rain.png'
     } else if (TypeOfWeather.includes('туман') || TypeOfWeather.includes('пасмурно')) {
-      return './icon_fog.png'
+      return './icon/icon_fog.png'
     } else if (TypeOfWeather.includes('облачно')) {
-      return './icon_cloudy.png'
+      return './icon/icon_cloudy.png'
     } else {
-      return './icon_sun.png'
+      return './icon/icon_sun.png'
     }
   }
 
