@@ -3,7 +3,7 @@ const puppeteer = require('puppeteer')
 async function searchWeather() {
 
    // const browser = await puppeteer.launch(); // for win
-   let browser = await puppeteer.launch({ // for linus
+   const browser = await puppeteer.launch({ // for linus
       executablePath: '/usr/bin/chromium-browser', 
       args: [ '--disable-gpu', '--disable-setuid-sandbox', '--no-sandbox', '--no-zygote' ] 
    })
