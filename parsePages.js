@@ -2,11 +2,14 @@ const puppeteer = require('puppeteer')
 
 async function searchWeather() {
 
-   // const browser = await puppeteer.launch(); // for win
-   const browser = await puppeteer.launch({ // for linus
-      executablePath: '/usr/bin/chromium-browser', 
-      args: [ '--disable-gpu', '--disable-setuid-sandbox', '--no-sandbox', '--no-zygote' ] 
-   })
+   const development = true; // true -> если запускаем на win / false -> если запускаем на linux
+   const browser = development ? 
+      await puppeteer.launch() : 
+      await puppeteer.launch({
+         executablePath: '/usr/bin/chromium-browser', 
+         args: [ '--disable-gpu', '--disable-setuid-sandbox', '--no-sandbox', '--no-zygote' ] 
+      })
+      
    const page = await browser.newPage();
 
    await page.goto('https://www.gismeteo.ru/weather-vladivostok-4877/10-days/');
@@ -19,7 +22,7 @@ async function searchWeather() {
          return `div.widget-row-chart.widget-row-chart-temperature > div > div > div:nth-of-type(${num}) > div.${temp} > span.unit.unit_temperature_c`
       },
       WildAndDegree: (selector) => {
-         return `div.widget.widget-wind.widget-days > div.widget-body.widget-columns-10 > div > div ${selector}`
+         return `div.widget.widget-wind.widget-days > div.widget-body.widget-columns-10 > div ${selector}`
       },
       Precipitation: (num) => {
          return `div.widget-row.widget-row-precipitation-bars.row-with-caption > div:nth-of-type(${num}) > div:nth-of-type(1)`
