@@ -3,6 +3,7 @@ const puppeteer = require('puppeteer')
 async function searchWeather() {
 
    const development = true; // true -> если запускаем на win / false -> если запускаем на linux
+   // а так же, при запуске на linux, необходимо дополнительно установить chromium-browser (sudo apt-get install chromium-browser)
    const browser = development ? 
       await puppeteer.launch() : 
       await puppeteer.launch({
